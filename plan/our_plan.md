@@ -18,10 +18,10 @@ flowchart TD
     end
 
     subgraph Hosting ["GitHub Pages Infrastructure"]
-        E["GitHub Repository: Economics-1-69"]
+        E["GitHub Repository: Econ"]
         F["Branch: main"]
         G["Directory: / (root)"]
-        H["Live URL: https://aishyahwhanglhee-oss.github.io/Economics-1-69/"]
+        H["Live URL: https://aishyahwhanglhee-oss.github.io/Econ/"]
     end
 
     A --> B
@@ -140,11 +140,11 @@ git push origin main
 ```
 
 ### C. GitHub Pages Setup
-1. Open the repository on GitHub: `https://github.com/aishyahwhanglhee-oss/Economics-1-69`.
+1. Open the repository on GitHub: `https://github.com/aishyahwhanglhee-oss/Econ`.
 2. Go to **Settings** > **Pages**.
 3. Under **Build and deployment**:
    - Source: **Deploy from a branch**
    - Branch: `main`
    - Folder: `/ (root)`
 4. Click **Save**. The website will be live at:  
-   `https://aishyahwhanglhee-oss.github.io/Economics-1-69/`
+   `https://aishyahwhanglhee-oss.github.io/Econ/`
