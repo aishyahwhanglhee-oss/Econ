@@ -1,222 +1,638 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siwat Teimtad | Economist Portfolio</title>
-  <meta name="description" content="Portfolio of Economist Siwat Teimtad. Analytical research on Austrian economics, policy analysis, and game-theoretic mechanism design.">
+  <title>Aisha | Economist & Quantitative Data Researcher</title>
+  <meta name="description" content="Portfolio of Aisha - Economics student specializing in Finance, Econometrics, and Quantitative Data Analytics.">
   <link rel="icon" type="image/png" href="./black.png">
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
 
-  <!-- Navigation Bar -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="./index.html" class="brand" aria-label="Siwat Teimtad Homepage">
-        <img src="./black.png" alt="Logo" class="brand-logo" onerror="this.style.display='none'">
-        <div class="brand-text">
-          <span class="brand-name">Siwat Teimtad</span>
-          <span class="brand-role">Economist</span>
-        </div>
+  <!-- Google Fonts: JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              bg: '#0A0A12',
+              card: '#121220',
+              pink: '#FF007F',
+              purple: '#9D4EDD',
+              cyan: '#00F5FF',
+              border: '#1F1F35',
+            }
+          },
+          boxShadow: {
+            'neon-pink': '0 0 20px rgba(255, 0, 127, 0.45)',
+            'neon-cyan': '0 0 20px rgba(0, 245, 255, 0.45)',
+            'neon-purple': '0 0 20px rgba(157, 78, 221, 0.45)',
+            'card-glow': '0 8px 32px 0 rgba(0, 0, 0, 0.6)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Cyberpunk Styles & Keyframes -->
+  <style>
+    * {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      background-color: #0A0A12;
+      color: #E2E8F0;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(157, 78, 221, 0.15) 0%, transparent 60%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    /* Subtle CRT Scanline overlay */
+    .scanlines {
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.25)
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+    }
+
+    /* Cyberpunk Glowing Gradient Text */
+    .text-glow-gradient {
+      background: linear-gradient(135deg, #FF007F 0%, #9D4EDD 50%, #00F5FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 25px rgba(255, 0, 127, 0.35));
+    }
+
+    /* Neon Border Glows */
+    .neon-border-pink {
+      border: 1px solid rgba(255, 0, 127, 0.4);
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
+    }
+    .neon-border-pink:hover {
+      border-color: #FF007F;
+      box-shadow: 0 0 25px rgba(255, 0, 127, 0.5);
+    }
+
+    .neon-border-cyan {
+      border: 1px solid rgba(0, 245, 255, 0.4);
+      box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+    }
+    .neon-border-cyan:hover {
+      border-color: #00F5FF;
+      box-shadow: 0 0 25px rgba(0, 245, 255, 0.5);
+    }
+
+    .neon-border-purple {
+      border: 1px solid rgba(157, 78, 221, 0.4);
+      box-shadow: 0 0 15px rgba(157, 78, 221, 0.2);
+    }
+    .neon-border-purple:hover {
+      border-color: #9D4EDD;
+      box-shadow: 0 0 25px rgba(157, 78, 221, 0.5);
+    }
+
+    /* Glassmorphism Card Style */
+    .cyber-card {
+      background: rgba(18, 18, 32, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cyber-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F1F35;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 245, 255, 0.3);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9D4EDD;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen relative flex flex-col justify-between selection:bg-[#FF007F] selection:text-white">
+
+  <!-- Ambient Background Scanlines & Neon Glow Orbs -->
+  <div class="fixed inset-0 scanlines z-50 pointer-events-none opacity-40"></div>
+  <div class="fixed top-1/4 -left-32 w-96 h-96 bg-[#FF007F] opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="fixed top-1/2 -right-32 w-96 h-96 bg-[#00F5FF] opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Sticky Cyberpunk Navigation Bar -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#0A0A12]/85 border-b border-cyber-border transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Glowing Logo -->
+      <a href="#hero" class="group flex items-center space-x-2 text-2xl font-extrabold tracking-wider" aria-label="Aisha Homepage">
+        <span class="text-[#00F5FF] group-hover:text-[#FF007F] transition-colors duration-300 drop-shadow-[0_0_12px_rgba(0,245,255,0.7)]">&lt;</span>
+        <span class="text-white tracking-widest group-hover:text-glow-gradient transition-all">AW.</span>
+        <span class="text-[#FF007F] group-hover:text-[#00F5FF] transition-colors duration-300 drop-shadow-[0_0_12px_rgba(255,0,127,0.7)]">/&gt;</span>
       </a>
 
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+        <a href="#projects" class="text-slate-300 hover:text-[#00F5FF] transition-colors duration-200 flex items-center space-x-1.5 group">
+          <span class="text-[#FF007F] opacity-70 group-hover:opacity-100">//</span>
+          <span>Projects</span>
+        </a>
+        <a href="#about" class="text-slate-300 hover:text-[#9D4EDD] transition-colors duration-200 flex items-center space-x-1.5 group">
+          <span class="text-[#9D4EDD] opacity-70 group-hover:opacity-100">//</span>
+          <span>About</span>
+        </a>
+        <a href="#contact" class="text-slate-300 hover:text-[#FF007F] transition-colors duration-200 flex items-center space-x-1.5 group">
+          <span class="text-[#00F5FF] opacity-70 group-hover:opacity-100">//</span>
+          <span>Contact</span>
+        </a>
+        
+        <a href="#contact" class="px-4 py-2 text-xs uppercase tracking-widest text-[#00F5FF] border border-[#00F5FF]/60 rounded hover:bg-[#00F5FF]/10 hover:border-[#00F5FF] transition-all shadow-[0_0_12px_rgba(0,245,255,0.25)]">
+          Hire / Connect
+        </a>
       </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-[#00F5FF] p-2 focus:outline-none" aria-label="Toggle navigation menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-2 pb-6 bg-[#121220]/95 border-b border-cyber-border space-y-4">
+      <a href="#projects" class="mobile-nav-link block text-slate-300 hover:text-[#00F5FF] py-2">// Projects</a>
+      <a href="#about" class="mobile-nav-link block text-slate-300 hover:text-[#9D4EDD] py-2">// About</a>
+      <a href="#contact" class="mobile-nav-link block text-slate-300 hover:text-[#FF007F] py-2">// Contact</a>
     </div>
   </header>
 
-  <main>
+  <main class="flex-grow">
+    
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          <span>Applied Economic Analysis &amp; Strategic Design</span>
+    <section id="hero" class="relative max-w-7xl mx-auto px-6 pt-16 pb-24 lg:pt-28 lg:pb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Left Column: Intro & Call-to-actions -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Pulsing Cyberpunk Badge -->
+          <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-[#121220] border border-[#00F5FF]/40 shadow-[0_0_15px_rgba(0,245,255,0.25)]">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F5FF] opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00F5FF]"></span>
+            </span>
+            <span class="text-xs uppercase tracking-widest font-bold text-[#00F5FF]">
+              ECONOMICS &amp; DATA ANALYTICS
+            </span>
+          </div>
+
+          <!-- Name & Title -->
+          <div class="space-y-2">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight">
+              Hello, I'm <br class="hidden sm:inline" />
+              <span class="text-glow-gradient">Aisha</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-semibold text-slate-300 tracking-wide flex items-center space-x-2">
+              <span class="text-[#9D4EDD]">&gt;</span>
+              <span>Aspiring Data Analyst &amp; Quantitative Researcher</span>
+            </p>
+          </div>
+
+          <!-- Tagline Quote Box -->
+          <div class="relative p-5 rounded-lg bg-[#121220]/80 border-l-4 border-[#FF007F] shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-sm">
+            <div class="absolute -top-3 right-4 px-2 py-0.5 text-[10px] tracking-widest text-[#FF007F] uppercase bg-[#0A0A12] border border-[#FF007F]/40 rounded">
+              MISSION_STATEMENT
+            </div>
+            <p class="text-slate-200 text-base sm:text-lg italic leading-relaxed">
+              "Turning Complex Data &amp; Economic Theories into Actionable Insights."
+            </p>
+          </div>
+
+          <!-- Cyberpunk Action Buttons -->
+          <div class="pt-4 flex flex-wrap gap-4 items-center">
+            <!-- View Projects (Neon Pink Button) -->
+            <a href="#projects" class="px-6 py-3.5 bg-[#FF007F] text-white font-bold text-sm uppercase tracking-wider rounded hover:bg-[#E0006F] transition-all duration-300 shadow-neon-pink hover:shadow-[0_0_30px_rgba(255,0,127,0.8)] transform hover:-translate-y-0.5 flex items-center space-x-2">
+              <span>View Projects</span>
+              <span>↓</span>
+            </a>
+
+            <!-- About & Contact (Neon Cyan Bordered Button) -->
+            <a href="#about" class="px-6 py-3.5 bg-transparent border-2 border-[#00F5FF] text-[#00F5FF] font-bold text-sm uppercase tracking-wider rounded hover:bg-[#00F5FF]/15 transition-all duration-300 shadow-neon-cyan hover:shadow-[0_0_30px_rgba(0,245,255,0.7)] transform hover:-translate-y-0.5 flex items-center space-x-2">
+              <span>About &amp; Contact</span>
+              <span>→</span>
+            </a>
+          </div>
+
         </div>
 
-        <h1 class="hero-quote">
-          "Master Economics, the Simple Way."
-        </h1>
+        <!-- Hero Right Column: Mini Interactive Terminal (R Code) -->
+        <div class="lg:col-span-5">
+          <div class="rounded-xl overflow-hidden bg-[#121220] border border-[#1F1F35] shadow-card-glow hover:border-[#9D4EDD]/60 transition-all duration-300">
+            
+            <!-- Terminal Header Bar -->
+            <div class="px-4 py-3 bg-[#0E0E18] border-b border-[#1F1F35] flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-[#FF007F]/80 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#9D4EDD]/80 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#00F5FF]/80 inline-block"></span>
+              </div>
+              <span class="text-xs text-slate-400 font-mono tracking-wider">aisha_econometrics.R</span>
+              <div class="text-[10px] text-[#00F5FF] font-semibold">LIVE_RUNNER</div>
+            </div>
 
-        <p class="hero-subtext">
-          Bridging foundational market principles with strategic decision models. Dedicated to dissecting complex policy interventions, strategic multi-agent equilibria, and long-run economic consequences without unnecessary jargon.
-        </p>
+            <!-- Terminal Code Window -->
+            <div class="p-5 font-mono text-xs leading-relaxed overflow-x-auto space-y-2 text-slate-300">
+              <p class="text-slate-500">// Initialize Quantitative Pipeline</p>
+              <p><span class="text-[#FF007F]">library</span>(tidyverse)</p>
+              <p><span class="text-[#FF007F]">library</span>(lmtest)</p>
+              <p class="text-slate-500">// Specifying Econometric Model</p>
+              <p>
+                model &lt;- <span class="text-[#00F5FF]">lm</span>(output ~ cr4_index + hhi + capital, data = th_electronics)
+              </p>
+              <p class="text-slate-500">// Diagnostic Tests</p>
+              <p>dw &lt;- <span class="text-[#9D4EDD]">dwtest</span>(model) <span class="text-slate-500"># Autocorrelation</span></p>
+              <p>vif &lt;- <span class="text-[#9D4EDD]">car::vif</span>(model) <span class="text-slate-500"># Multicollinearity</span></p>
+              <div class="mt-4 pt-3 border-t border-[#1F1F35] text-[11px] text-[#00F5FF]">
+                <p>&gt; [EXECUTION SUCCESSFUL]</p>
+                <p>&gt; Adjusted R² : <span class="text-[#FF007F] font-bold">0.8942</span></p>
+                <p>&gt; P-Value     : <span class="text-emerald-400 font-bold">&lt; 0.0001 ***</span></p>
+                <p class="text-slate-400">&gt; No critical collinearity detected.</p>
+              </div>
+            </div>
 
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">
-            <span>Explore Analytical Projects</span>
-            <span>&darr;</span>
-          </a>
-          <a href="#about" class="btn btn-outline">
-            <span>About &amp; Contact</span>
-          </a>
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Research &amp; Case Studies</span>
-          <h2 class="section-title">Featured Economic Analyses</h2>
-          <p class="section-desc">
-            Rigorous, in-depth breakdowns of classical market theory and modern game-theoretic mechanism design.
-          </p>
+    <section id="projects" class="relative max-w-7xl mx-auto px-6 py-20 border-t border-cyber-border">
+      
+      <!-- Section Header -->
+      <div class="mb-14">
+        <div class="flex items-center space-x-2 text-xs uppercase tracking-widest text-[#FF007F] font-bold mb-2">
+          <span>//</span>
+          <span>01. PORTFOLIO WORKBENCH</span>
         </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Featured <span class="text-glow-gradient">Projects</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+          Empirical econometrics, market structure analysis, and statistical programming focused on real-world market dynamics.
+        </p>
+      </div>
 
-        <div class="projects-grid">
-          <!-- Project 1 Card -->
-          <article class="project-card">
-            <div>
-              <div class="project-meta">
-                <span class="project-tag">Austrian &amp; Classical Economics</span>
-                <span class="project-read-time">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  8 min read
-                </span>
-              </div>
-
-              <h3 class="project-title">
-                Key Economic Concepts of <em>Economics in One Lesson</em> (Henry Hazlitt, 1946)
-              </h3>
-
-              <p class="project-excerpt">
-                A deep philosophical and empirical examination of Henry Hazlitt's classic treatise. Unpacking the "Seen versus Unseen", the persistent fallacy of the broken window, public works crowding-out, and the systemic distortions of price and wage mandates.
-              </p>
-
-              <ul class="project-highlights">
-                <li>The Single Lesson: tracing longer consequences for all economic agents.</li>
-                <li>The Broken Window Fallacy: dismantling the illusion of destruction as stimulus.</li>
-                <li>Capital allocation, machine productivity, and price-ceiling shortages.</li>
-              </ul>
+      <!-- 3 Interactive Cyberpunk Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1: Thailand Electronics Industry Analysis -->
+        <article class="cyber-card rounded-xl p-6 flex flex-col justify-between neon-border-cyan group">
+          <div class="space-y-4">
+            
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-[#00F5FF]/10 text-[#00F5FF] border border-[#00F5FF]/30">
+                Market Structure &amp; Econometrics
+              </span>
+              <span class="text-xs text-slate-500 font-mono">#01</span>
             </div>
 
-            <a href="./hazlitt-economics.html" class="project-link">
-              <span>Read Full Essay (1,200+ words)</span>
-              <span>&rarr;</span>
-            </a>
-          </article>
+            <h3 class="text-xl font-bold text-white group-hover:text-[#00F5FF] transition-colors leading-snug">
+              Thailand Electronics Industry Analysis
+            </h3>
 
-          <!-- Project 2 Card -->
-          <article class="project-card">
-            <div>
-              <div class="project-meta">
-                <span class="project-tag">Game Theory &amp; Microeconomics</span>
-                <span class="project-read-time">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  8 min read
-                </span>
-              </div>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Empirical research analyzing market concentration (CR4, HHI) and competitive dynamics using Porter's Five Forces framework in Thailand's electronics sector.
+            </p>
 
-              <h3 class="project-title">
-                Game Theory in Economics: Strategic Interdependence &amp; Mechanism Design
-              </h3>
+          </div>
 
-              <p class="project-excerpt">
-                Comprehensive study of non-cooperative game theory, simultaneous &amp; sequential interactions, asymmetric information, and auction theory. Demonstrating how equilibrium concepts govern oligopoly markets, climate treaties, and policy architecture.
-              </p>
+          <div class="mt-8 pt-4 border-t border-cyber-border">
+            <div class="text-[10px] uppercase tracking-wider text-slate-400 mb-2 font-semibold">Methodologies &amp; Tools</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#00F5FF]/40 text-slate-200">Econometrics</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#00F5FF]/40 text-slate-200">CR4 / HHI</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#00F5FF]/40 text-slate-200">Market Structure</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#00F5FF]/40 text-slate-200">Industry Analysis</span>
+            </div>
+          </div>
+        </article>
 
-              <ul class="project-highlights">
-                <li>Nash Equilibrium, Pareto inefficiency &amp; the Prisoner's Dilemma.</li>
-                <li>Dynamic games, backward induction &amp; subgame perfection.</li>
-                <li>Information asymmetry: Akerlof's lemons, Spence's signaling, and VCG auctions.</li>
-              </ul>
+        <!-- Project 2: Quantitative Economic Modeling & Econometrics -->
+        <article class="cyber-card rounded-xl p-6 flex flex-col justify-between neon-border-pink group">
+          <div class="space-y-4">
+            
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-[#FF007F]/10 text-[#FF007F] border border-[#FF007F]/30">
+                Data Analysis &amp; R Programming
+              </span>
+              <span class="text-xs text-slate-500 font-mono">#02</span>
             </div>
 
-            <a href="./game-theory.html" class="project-link">
-              <span>Read Full Essay (1,200+ words)</span>
-              <span>&rarr;</span>
-            </a>
-          </article>
-        </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-[#FF007F] transition-colors leading-snug">
+              Quantitative Economic Modeling &amp; Econometrics
+            </h3>
+
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Time-series forecasting and econometric diagnostics dealing with autocorrelation and multicollinearity using R (tidyverse, ggplot2).
+            </p>
+
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-cyber-border">
+            <div class="text-[10px] uppercase tracking-wider text-slate-400 mb-2 font-semibold">Methodologies &amp; Tools</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#FF007F]/40 text-slate-200">R Language</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#FF007F]/40 text-slate-200">Time-Series</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#FF007F]/40 text-slate-200">Autocorrelation</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#FF007F]/40 text-slate-200">ggplot2</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Financial & Quantitative Theory Explorations -->
+        <article class="cyber-card rounded-xl p-6 flex flex-col justify-between neon-border-purple group">
+          <div class="space-y-4">
+            
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-[#9D4EDD]/15 text-[#9D4EDD] border border-[#9D4EDD]/30">
+                Micro/Macro &amp; Financial Economics
+              </span>
+              <span class="text-xs text-slate-500 font-mono">#03</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-[#9D4EDD] transition-colors leading-snug">
+              Financial &amp; Quantitative Theory Explorations
+            </h3>
+
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Analytical models evaluating price theory, game theory equilibria, and corporate financial structures.
+            </p>
+
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-cyber-border">
+            <div class="text-[10px] uppercase tracking-wider text-slate-400 mb-2 font-semibold">Methodologies &amp; Tools</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#9D4EDD]/40 text-slate-200">Game Theory</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#9D4EDD]/40 text-slate-200">Microeconomics</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#9D4EDD]/40 text-slate-200">Price Theory</span>
+              <span class="text-xs px-2.5 py-1 rounded bg-[#0A0A12] border border-[#9D4EDD]/40 text-slate-200">Finance</span>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- About & Contact Section -->
-    <section id="about" class="about-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Profile</span>
-          <h2 class="section-title">About Me</h2>
+    <!-- About Me & Contact Section -->
+    <section id="about" class="relative max-w-7xl mx-auto px-6 py-20 border-t border-cyber-border">
+      
+      <!-- Section Header -->
+      <div class="mb-14">
+        <div class="flex items-center space-x-2 text-xs uppercase tracking-widest text-[#00F5FF] font-bold mb-2">
+          <span>//</span>
+          <span>02. DOSSIER &amp; COMMUNICATION</span>
         </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          About Me <span class="text-glow-gradient">&amp; Connect</span>
+        </h2>
+      </div>
 
-        <div class="about-card">
-          <div class="about-bio">
-            <h3>Siwat Teimtad</h3>
-            <div class="subtitle">Economist &amp; Quantitative Market Analyst</div>
-            <p>
-              I specialize in economic reasoning that demystifies market mechanics, incentive design, and public policy impacts. My work integrates classical price theory with modern non-cooperative game theory to understand how rational agents navigate institutional constraints.
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Bio & Core Skills Badges -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <div class="cyber-card rounded-xl p-8 border border-cyber-border space-y-4">
+            <h3 class="text-xl font-bold text-white flex items-center space-x-2">
+              <span class="text-[#00F5FF]">//</span>
+              <span>Academic &amp; Research Background</span>
+            </h3>
+            <p class="text-slate-300 leading-relaxed text-base">
+              I am an Economics student at <span class="text-white font-semibold">Ramkhamhaeng University</span> specializing in 
+              <span class="text-[#00F5FF] font-medium">Finance</span> and <span class="text-[#9D4EDD] font-medium">Quantitative Theory</span>.
             </p>
-            <p>
-              Driven by the philosophy that clarity precedes conviction, I focus on analyzing the secondary, long-run consequences of fiscal and regulatory measures often overlooked in conventional short-term public discourse.
+            <p class="text-slate-400 leading-relaxed text-sm">
+              Passionate about empirical data analysis, econometrics, and quantitative modeling. My primary interest lies in decomposing market phenomena into measurable statistical frameworks, testing economic hypotheses with rigorous econometric specifications, and translating raw datasets into clear strategic decisions.
             </p>
+          </div>
 
-            <div class="competencies">
-              <div class="competencies-title">Core Research Focus</div>
-              <div class="tags-cloud">
-                <span class="skill-tag">Price Theory</span>
-                <span class="skill-tag">Non-Cooperative Game Theory</span>
-                <span class="skill-tag">Mechanism Design</span>
-                <span class="skill-tag">Public Choice</span>
-                <span class="skill-tag">Austrian &amp; Classical Economics</span>
-                <span class="skill-tag">Auction Architecture</span>
+          <!-- Core Skills Badges with Neon Glowing Borders -->
+          <div class="space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center space-x-2">
+              <span class="text-[#FF007F]">●</span>
+              <span>Core Quantitative Competencies</span>
+            </h4>
+
+            <div class="flex flex-wrap gap-3">
+              <!-- R -->
+              <div class="px-4 py-2.5 rounded-lg bg-[#121220] neon-border-cyan flex items-center space-x-2.5 transition-all">
+                <span class="w-2 h-2 rounded-full bg-[#00F5FF]"></span>
+                <span class="text-sm font-bold text-white">R Language</span>
+              </div>
+
+              <!-- SQL -->
+              <div class="px-4 py-2.5 rounded-lg bg-[#121220] neon-border-pink flex items-center space-x-2.5 transition-all">
+                <span class="w-2 h-2 rounded-full bg-[#FF007F]"></span>
+                <span class="text-sm font-bold text-white">SQL</span>
+              </div>
+
+              <!-- Econometrics -->
+              <div class="px-4 py-2.5 rounded-lg bg-[#121220] neon-border-purple flex items-center space-x-2.5 transition-all">
+                <span class="w-2 h-2 rounded-full bg-[#9D4EDD]"></span>
+                <span class="text-sm font-bold text-white">Econometrics</span>
+              </div>
+
+              <!-- Financial Economics -->
+              <div class="px-4 py-2.5 rounded-lg bg-[#121220] neon-border-cyan flex items-center space-x-2.5 transition-all">
+                <span class="w-2 h-2 rounded-full bg-[#00F5FF]"></span>
+                <span class="text-sm font-bold text-white">Financial Economics</span>
+              </div>
+
+              <!-- ggplot2 -->
+              <div class="px-4 py-2.5 rounded-lg bg-[#121220] neon-border-pink flex items-center space-x-2.5 transition-all">
+                <span class="w-2 h-2 rounded-full bg-[#FF007F]"></span>
+                <span class="text-sm font-bold text-white">ggplot2</span>
               </div>
             </div>
           </div>
 
-          <div id="contact" class="contact-box">
-            <div>
-              <h4>Get in Touch</h4>
-              <p>
-                Interested in discussing economic research, policy evaluations, game-theoretic modeling, or collaboration? Reach out directly.
+        </div>
+
+        <!-- Contact Box & Action Interface -->
+        <div id="contact" class="lg:col-span-5">
+          <div class="cyber-card rounded-xl p-8 border border-cyber-border space-y-6">
+            
+            <div class="flex items-center justify-between border-b border-cyber-border pb-4">
+              <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Channel Status: Available</span>
+              </div>
+              <span class="text-xs text-slate-500 font-mono">ENCRYPTED_PORT</span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-white">Let's Collaborate</h3>
+              <p class="text-sm text-slate-400">
+                Interested in data analytics consultations, econometric research collaborations, or quantitative internship opportunities? Reach out directly.
               </p>
+            </div>
 
-              <div class="contact-item">
-                <span class="contact-label">Name</span>
-                <div class="contact-value">Siwat Teimtad</div>
+            <!-- Email Display & Interactive Copy Box -->
+            <div class="space-y-2">
+              <label for="emailInput" class="text-xs font-bold uppercase tracking-wider text-slate-400">Direct Email</label>
+              
+              <div class="flex items-center space-x-2 p-2 bg-[#0A0A12] border border-[#1F1F35] rounded-lg focus-within:border-[#00F5FF] transition-all">
+                <input 
+                  type="text" 
+                  id="emailInput"
+                  readonly 
+                  value="aishyahwhanglhee@gmail.com" 
+                  class="bg-transparent text-sm text-[#00F5FF] font-mono px-2 py-1 flex-grow outline-none select-all"
+                  aria-label="Aisha's contact email address"
+                >
+                <button 
+                  id="copyBtn" 
+                  type="button"
+                  class="px-4 py-2 bg-[#FF007F] text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-[#E0006F] shadow-neon-pink transition-all active:scale-95 flex items-center space-x-1.5"
+                  aria-label="Copy email address to clipboard"
+                >
+                  <span id="copyIcon">📋</span>
+                  <span id="copyText">Copy</span>
+                </button>
               </div>
 
-              <div class="contact-item">
-                <span class="contact-label">Primary Email</span>
-                <div class="email-copy-wrapper">
-                  <a href="mailto:dx@outlook.com" class="email-address">dx@outlook.com</a>
-                  <button type="button" class="btn-copy" id="copyEmailBtn" aria-label="Copy email address">
-                    Copy
-                  </button>
-                </div>
-                <div class="copy-toast" id="copyToast" aria-live="polite"></div>
+              <!-- Toast notification -->
+              <div id="toastMessage" class="hidden text-xs text-emerald-400 font-semibold pt-1 flex items-center space-x-1">
+                <span>✓</span>
+                <span>Copied to clipboard successfully!</span>
               </div>
             </div>
 
-            <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
-              Available for economic research consultations, policy analysis, and academic writing.
+            <!-- Additional Contact Metadata -->
+            <div class="pt-4 border-t border-cyber-border space-y-3 text-xs text-slate-400">
+              <div class="flex justify-between items-center">
+                <span>Location</span>
+                <span class="text-slate-200 font-mono">Bangkok, Thailand</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Institution</span>
+                <span class="text-slate-200 font-mono">Ramkhamhaeng University</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>GitHub</span>
+                <a href="https://github.com/aishyahwhanglhee-oss" target="_blank" rel="noopener noreferrer" class="text-[#00F5FF] hover:underline font-mono">
+                  github.com/aishyahwhanglhee-oss ↗
+                </a>
+              </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <div>&copy; 2026 Siwat Teimtad. All rights reserved.</div>
-        <div style="margin-top: 0.25rem;">Hosted on GitHub Pages with pure HTML, CSS &amp; JavaScript.</div>
+  <!-- Cyberpunk Minimal Footer -->
+  <footer class="w-full border-t border-cyber-border bg-[#0A0A12] py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-4 sm:space-y-0 font-mono">
+      <div class="flex items-center space-x-2">
+        <span class="w-2 h-2 rounded-full bg-[#00F5FF]"></span>
+        <span>Aisha // Econometrics &amp; Quantitative Analytics</span>
       </div>
-      <div class="footer-quote">
-        "Master Economics, the Simple Way."
+      <div>
+        <span>System Status: Optimal</span>
+        <span class="mx-2 text-slate-700">|</span>
+        <span>Hosted via GitHub Pages</span>
       </div>
     </div>
   </footer>
 
-  <script src="./js/main.js"></script>
+  <!-- Interactive JavaScript -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // 2. Email Copy-to-Clipboard with Toast Feedback
+    const copyBtn = document.getElementById('copyBtn');
+    const emailInput = document.getElementById('emailInput');
+    const copyText = document.getElementById('copyText');
+    const toastMessage = document.getElementById('toastMessage');
+
+    if (copyBtn && emailInput) {
+      copyBtn.addEventListener('click', async () => {
+        const email = emailInput.value;
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+          } else {
+            // Fallback for non-https or older browsers
+            emailInput.select();
+            document.execCommand('copy');
+          }
+
+          // Visual feedback
+          copyText.textContent = 'Copied!';
+          copyBtn.classList.remove('bg-[#FF007F]');
+          copyBtn.classList.add('bg-emerald-500');
+          toastMessage.classList.remove('hidden');
+
+          setTimeout(() => {
+            copyText.textContent = 'Copy';
+            copyBtn.classList.remove('bg-emerald-500');
+            copyBtn.classList.add('bg-[#FF007F]');
+            toastMessage.classList.add('hidden');
+          }, 3000);
+
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+          alert('Email copied manually: ' + email);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
